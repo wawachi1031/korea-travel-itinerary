@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 韓国旅行のしおり
 
-## Getting Started
+ソウル・釜山への韓国旅行をまとめたモバイル対応のWebしおりアプリです。
 
-First, run the development server:
+## 機能
+
+- **日程タブ** — 4日間のスケジュールをタイムライン表示
+- **情報タブ** — 緊急連絡先・おすすめアプリ・交通・両替情報
+- **フレーズタブ** — よく使う韓国語（タップでクリップボードにコピー）
+- **予算タブ** — 旅行費用の目安一覧
+
+## 技術スタック
+
+- [Next.js](https://nextjs.org) (App Router)
+- TypeScript
+- Tailwind CSS
+- GitHub Pages（静的エクスポート）
+
+## ローカルでの起動
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ビルド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+`out/` フォルダに静的HTMLが生成されます。
 
-To learn more about Next.js, take a look at the following resources:
+## デプロイ
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`main` ブランチにプッシュすると、GitHub Actions が自動でビルドして GitHub Pages に公開します。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## カスタマイズ
 
-## Deploy on Vercel
+`app/data.ts` を編集して旅行情報を設定してください。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `tripInfo` — タイトル・旅行日程・メンバー・緊急連絡先
+- `days` — 日ごとのスケジュール
+- `usefulPhrases` — 韓国語フレーズ
+- `budgetItems` — 予算項目
