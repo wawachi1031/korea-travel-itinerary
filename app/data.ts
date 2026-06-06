@@ -99,9 +99,9 @@ export const days: Day[] = [
             schedules: [
               {
                 time: "20:00",
-                place: "ディナー：오다리집（オダリチプ）",
-                description: "絶品のカンジャンケジャンを堪能",
-                address: "오다리집",
+                place: "ディナー：솥돈（ソットン）",
+                description: "サムギョプサルを堪能",
+                address: "솥돈 홍대점",
                 category: "food",
               },
               {
