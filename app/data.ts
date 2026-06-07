@@ -17,11 +17,6 @@ export type ShopItem = {
   korean: string;
 };
 
-export type BranchOption = {
-  label: string;
-  schedules: Schedule[];
-};
-
 export type Schedule = {
   time: string;
   place: string;
@@ -30,7 +25,6 @@ export type Schedule = {
   tip?: string;
   category: "transport" | "walk" | "taxi" | "food" | "sightseeing" | "hotel" | "shopping";
   shops?: ShopItem[];
-  branches?: BranchOption[];
   steps?: string[];
   noMap?: boolean;
 };
@@ -74,14 +68,14 @@ export const days: Day[] = [
         ],
       },
       {
-        time: "19:30",
+        time: "18:50",
         place: "ホテル チェックイン",
         description: "明洞駅3番出口近く",
         address: "오요6",
         category: "hotel",
       },
       {
-        time: "19:45",
+        time: "19:00",
         place: "明洞大使館前両替所",
         description: "ウォン現金を調達",
         address: "대사관앞 환전",
@@ -89,73 +83,23 @@ export const days: Day[] = [
         category: "walk",
       },
       {
-        time: "20:00〜",
-        place: "ルート分岐",
-        description: "この後の行動を選んでください",
-        category: "transport",
-        branches: [
-          {
-            label: "ルートA：先にディナー",
-            schedules: [
-              {
-                time: "20:00",
-                place: "ディナー：솥돈（ソットン）",
-                description: "サムギョプサルを堪能",
-                address: "솥돈 홍대점",
-                category: "food",
-              },
-              {
-                time: "21:30",
-                place: "明洞ショッピング",
-                description: "明洞エリアのショップを巡る",
-                address: "명동",
-                category: "shopping",
-                shops: [
-                  { name: "オリーブヤング 明洞タウン店", korean: "올리브영 명동 타운" },
-                  { name: "musinsaストア明洞", korean: "musinsa 스토어 명동" },
-                  { name: "韓国ダイソー 明洞駅店", korean: "다이소 명동역점" },
-                  { name: "emis 明洞フラッグシップ（23:00まで営業）", korean: "emis 명동 플래그십 스토어" },
-                ],
-              },
-            ],
-          },
-          {
-            label: "ルートB：先にノースフェイス",
-            schedules: [
-              {
-                time: "20:00",
-                place: "ノースフェイス万里洞直営店",
-                description: "タクシーで約10分。韓国限定「WHITE LABEL」（〜21:00閉店）",
-                address: "노스페이스 만리동직영점",
-                category: "shopping",
-              },
-              {
-                time: "21:10",
-                place: "タクシーで明洞へ戻る",
-                description: "購入したノースフェイスの袋を持って帰還",
-                category: "taxi",
-              },
-              {
-                time: "21:25",
-                place: "ディナー：오다리집（オダリチプ）",
-                description: "カンジャンケジャン！！！！",
-                address: "오다리집",
-                category: "food",
-              },
-              {
-                time: "22:45",
-                place: "明洞ショッピング",
-                description: "深夜営業のショップをチラ見しながらホテルへ",
-                address: "명동",
-                category: "shopping",
-                shops: [
-                  { name: "オリーブヤング 明洞タウン店", korean: "올리브영 명동 타운" },
-                  { name: "韓国ダイソー 明洞駅店", korean: "다이소 명동역점" },
-                  { name: "musinsaストア明洞", korean: "musinsa 스토어 명동" },
-                ],
-              },
-            ],
-          },
+        time: "20:00",
+        place: "ディナー：솥돈（ソットン）",
+        description: "サムギョプサルを堪能",
+        address: "솥돈 홍대점",
+        category: "food",
+      },
+      {
+        time: "21:30",
+        place: "明洞ショッピング",
+        description: "明洞エリアのショップを巡る",
+        address: "명동",
+        category: "shopping",
+        shops: [
+          { name: "オリーブヤング 明洞タウン店", korean: "올리브영 명동 타운" },
+          { name: "emis 明洞フラッグシップ（23:00まで営業）", korean: "emis 명동 플래그십 스토어" },
+          { name: "musinsaストア明洞", korean: "musinsa 스토어 명동" },
+          { name: "韓国ダイソー 明洞駅店", korean: "다이소 명동역점" },
         ],
       },
     ],
@@ -166,85 +110,117 @@ export const days: Day[] = [
     color: "orange",
     schedules: [
       {
-        time: "09:00",
-        place: "朝食＆食べ歩き：広蔵市場",
-        description: "Buchon Yukhoe（朝ユッケ）/ 緑豆チヂミ / ねじりドーナツ",
-        address: "광장시장",
-        tip: "屋台は現金払いが多いので少額紙幣を用意",
+        time: "08:20",
+        place: "ホテル 出発",
+        description: "荷物を整えて出発",
+        address: "오요6",
+        category: "hotel",
+      },
+      {
+        time: "08:40",
+        place: "南大門市場 野菜ホットク",
+        description: "朝から開いている名物「野菜ホットク」",
+        address: "남대문야채호떡",
         category: "food",
       },
       {
-        time: "11:00",
+        time: "09:10",
+        place: "バス 発車",
+        description: "広蔵市場へ向かう",
+        category: "transport",
+        noMap: true,
+      },
+      {
+        time: "09:30",
+        place: "朝食＆食べ歩き：広蔵市場",
+        description: "朝ユッケ / 緑豆チヂミ / ねじりドーナツ",
+        address: "광장시장",
+        tip: "屋台は現金払いが多いので少額紙幣を用意",
+        category: "food",
+        shops: [
+          { name: "プチョンユッケ本店（朝ユッケ）", korean: "부촌육회" },
+          { name: "Soonheene's Bindaetteok（緑豆チヂミ）", korean: "순희네빈대떡 광장시장점" },
+          { name: "Twisted Donut（ねじりドーナツ）", korean: "Twisted Donut" },
+        ],
+      },
+      {
+        time: "11:30",
+        place: "東大門エリアへ移動",
+        description: "バスまたは地下鉄で移動",
+        category: "transport",
+        noMap: true,
+      },
+      {
+        time: "11:45",
+        place: "Daiso 東大門店",
+        description: "雑貨やコスメをまとめ買い",
+        address: "다이소 던던동대문점",
+        category: "shopping",
+      },
+      {
+        time: "12:45",
+        place: "マスクショップ ＆ nyunyu",
+        description: "マスク・アパレルショッピング",
+        address: "더마스크샵",
+        category: "shopping",
+        shops: [
+          { name: "マスクショップ", korean: "더마스크샵" },
+          { name: "nyunyu 東大門店", korean: "뉴뉴 동대문점" },
+        ],
+      },
+      {
+        time: "14:00",
+        place: "昼食：タンスユク（원조홍릉각）",
+        description: "韓国風酢豚を堪能",
+        address: "원조홍릉각",
+        category: "food",
+      },
+      {
+        time: "15:00",
+        place: "聖水（ソンス）へ移動",
+        description: "地下鉄で移動",
+        address: "성수역",
+        category: "walk",
+      },
+      {
+        time: "15:40",
+        place: "聖水エリアのショップ巡り",
+        description: "聖水エリアの人気ショップを回る",
+        address: "성수",
+        category: "shopping",
+        shops: [
+          { name: "ONGO", korean: "ONGO 온고" },
+          { name: "miffy store SEOUL", korean: "미피스토어 서울" },
+          { name: "adidas ORIGINALS フラグシップ聖水", korean: "아디다스 오리지널스 플래그십 성수" },
+        ],
+      },
+      {
+        time: "17:00",
         place: "江南（カンナム）へ移動",
-        description: "地下鉄2号線で1本（約25分）",
+        description: "地下鉄2号線で移動",
         address: "강남역",
         category: "walk",
       },
       {
-        time: "11:30",
-        place: "CHAGEE 江南フラグシップ",
-        description: "プレミアムミルクティー",
-        address: "차지 강남플래그십점",
-        category: "food",
-      },
-      {
-        time: "12:00",
+        time: "17:30",
         place: "31ジェラート（Workshop by Baskin Robbins）",
         description: "お目当ての限定ジェラート",
         address: "Workshop by 배스킨라빈스",
         category: "food",
       },
       {
-        time: "13:30",
-        place: "聖水（ソンス）へ移動",
-        description: "地下鉄2号線（約15分）",
-        address: "성수역",
-        category: "walk",
-      },
-      {
-        time: "13:45",
-        place: "BETON 聖水店",
-        description: "人気の塩パンでカフェタイム",
-        address: "베통 성수",
-        tip: "15:00の焼き上がりに合わせて入店がおすすめ",
+        time: "18:45",
+        place: "盤浦漢江公園 ラーメン",
+        description: "漢江沿いでラーメンを楽しむ",
+        address: "반포한강공원",
         category: "food",
       },
       {
-        time: "15:00",
-        place: "聖水エリアのショップ巡り",
-        description: "聖水エリアの人気ショップを回る",
-        address: "성수",
-        category: "shopping",
-        shops: [
-          { name: "Matin Kim 聖水フラッグシップ", korean: "마뗑킴 성수플래그십스토어" },
-          { name: "miffy store SEOUL", korean: "미피스토어 서울" },
-          { name: "ONGO", korean: "ONGO 온고" },
-        ],
-      },
-      {
-        time: "17:00",
-        place: "ホテルへ戻る（明洞）",
-        description: "購入した荷物を置いて休憩",
+        time: "20:00",
+        place: "ホテルへ戻る（明洞）・自由時間",
+        description: "購入した荷物を置いて休憩・自由時間",
         address: "오요6",
         category: "hotel",
-      },
-      {
-        time: "18:30",
-        place: "ディナー：홍콩반점0410（香港飯店 明洞店）",
-        description: "モチモチのタンスユク（韓国風酢豚）を堪能",
-        address: "홍콩반점0410 명동점",
-        category: "food",
-      },
-      {
-        time: "20:30",
-        place: "夜活：東大門（トンデモン）",
-        description: "東大門エリアで深夜ショッピング",
-        address: "동대문",
-        category: "shopping",
-        shops: [
-          { name: "nyunyu 東大門店", korean: "뉴뉴 동대문점" },
-          { name: "マスクショップ", korean: "더마스크샵" },
-        ],
       },
     ],
   },
@@ -261,26 +237,11 @@ export const days: Day[] = [
         category: "hotel",
       },
       {
-        time: "07:45",
-        place: "南大門市場 野菜ホットク",
-        description: "朝から開いている名物「野菜ホットク」を並んで朝食代わりに",
-        address: "남대문야채호떡",
-        category: "food",
-      },
-      {
         time: "08:15",
-        place: "ソウル駅へ移動",
-        description: "地下鉄で1駅",
+        place: "ソウル駅へ移動・お土産調達",
+        description: "ソウル駅構内のコンビニ・売店でお菓子やラーメンをまとめて購入",
         address: "서울역",
         category: "walk",
-      },
-      {
-        time: "08:30",
-        place: "ノースフェイスアウトレット 万里洞店 ＆ お土産調達",
-        description: "ソウル駅構内のコンビニ・売店でお菓子やラーメンもまとめて購入",
-        address: "노스페이스 만리동직영점",
-        tip: "通常10:00開店。閉まっている場合はソウル駅直結ロッテアウトレット or 金浦空港免税店で",
-        category: "shopping",
       },
       {
         time: "08:50",

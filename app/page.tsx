@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { tripInfo, days, usefulPhrases, type Schedule } from "./data";
-import type { ShopItem, BranchOption } from "./data";
+import type { ShopItem } from "./data";
 
 const categoryConfig = {
   transport: { icon: "✈️", label: "移動", bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-700" },
@@ -164,7 +164,6 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<"schedule" | "info" | "phrases">("schedule");
   const [activeDay, setActiveDay] = useState(0);
   const [selected, setSelected] = useState<{ schedule: Schedule; dayColor: string } | null>(null);
-  const [activeBranches, setActiveBranches] = useState<Record<string, number>>({});
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
   const toggleCheck = (i: number) => setCheckedItems(prev => {
     const next = new Set(prev);
@@ -255,47 +254,6 @@ export default function Home() {
                     {days[activeDay].schedules.map((schedule, i) => {
                       const dayColor = days[activeDay].color;
                       const colors = dayColorConfig[dayColor];
-
-                      if (schedule.branches) {
-                        const key = `${activeDay}-${i}`;
-                        const activeBranchIdx = activeBranches[key] ?? 0;
-                        const branchSchedules = schedule.branches[activeBranchIdx].schedules;
-                        return (
-                          <div key={i} className="relative">
-                            <div className="absolute -left-6 top-3 w-3.5 h-3.5 rounded-full border-2 border-white bg-gray-400 shadow" />
-                            <div className="rounded-2xl border-2 border-dashed border-gray-200 bg-white p-4">
-                              <div className="flex items-center gap-2 mb-3">
-                                <span>🔀</span>
-                                <span className="font-bold text-gray-600 text-sm">どちらのルートで行きますか？</span>
-                              </div>
-                              <div className="flex gap-2 mb-4">
-                                {schedule.branches.map((branch: BranchOption, bi: number) => (
-                                  <button
-                                    key={bi}
-                                    onClick={() => setActiveBranches(prev => ({ ...prev, [key]: bi }))}
-                                    className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-colors ${
-                                      activeBranchIdx === bi ? colors.tab : "bg-gray-100 text-gray-500"
-                                    }`}
-                                  >
-                                    {branch.label}
-                                  </button>
-                                ))}
-                              </div>
-                              <div className="relative">
-                                <div className="absolute left-[7px] top-0 bottom-0 w-0.5 bg-gray-100" />
-                                <div className="space-y-3 pl-6">
-                                  {branchSchedules.map((s: Schedule, si: number) => (
-                                    <div key={si} className="relative">
-                                      <div className={`absolute -left-6 top-3 w-3.5 h-3.5 rounded-full border-2 border-white ${colors.dot} shadow`} />
-                                      <ScheduleCard schedule={s} onClick={() => setSelected({ schedule: s, dayColor })} />
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      }
 
                       return (
                         <div key={i} className="relative">
