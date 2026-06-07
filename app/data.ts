@@ -99,7 +99,6 @@ export const days: Day[] = [
           { name: "オリーブヤング 明洞タウン店", korean: "올리브영 명동 타운" },
           { name: "emis 明洞フラッグシップ（23:00まで営業）", korean: "emis 명동 플래그십 스토어" },
           { name: "musinsaストア明洞", korean: "musinsa 스토어 명동" },
-          { name: "韓国ダイソー 明洞駅店", korean: "다이소 명동역점" },
         ],
       },
     ],
