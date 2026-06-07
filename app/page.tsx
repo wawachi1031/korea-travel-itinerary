@@ -7,7 +7,8 @@ import type { ShopItem } from "./data";
 const categoryConfig = {
   transport: { icon: "✈️", label: "移動", bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-700" },
   taxi: { icon: "🚗", label: "タクシー", bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-700" },
-  walk: { icon: "🚶", label: "移動", bg: "bg-red-50", border: "border-red-200", text: "text-red-700" },
+  walk: { icon: "🏃‍♂️", label: "移動", bg: "bg-red-50", border: "border-red-200", text: "text-red-700" },
+  train: { icon: "🚇", label: "電車", bg: "bg-sky-50", border: "border-sky-200", text: "text-sky-700" },
   food: { icon: "🍽️", label: "食事", bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-700" },
   sightseeing: { icon: "📸", label: "観光", bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700" },
   hotel: { icon: "🏨", label: "宿泊", bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-700" },

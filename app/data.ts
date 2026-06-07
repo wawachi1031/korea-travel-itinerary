@@ -23,7 +23,7 @@ export type Schedule = {
   description: string;
   address?: string;
   tip?: string;
-  category: "transport" | "walk" | "taxi" | "food" | "sightseeing" | "hotel" | "shopping";
+  category: "transport" | "walk" | "train" | "taxi" | "food" | "sightseeing" | "hotel" | "shopping";
   shops?: ShopItem[];
   steps?: string[];
   noMap?: boolean;
@@ -127,7 +127,7 @@ export const days: Day[] = [
         time: "09:10",
         place: "バス 発車",
         description: "広蔵市場へ向かう",
-        category: "transport",
+        category: "walk",
         noMap: true,
       },
       {
@@ -147,7 +147,7 @@ export const days: Day[] = [
         time: "11:30",
         place: "東大門エリアへ移動",
         description: "バスまたは地下鉄で移動",
-        category: "transport",
+        category: "walk",
         noMap: true,
       },
       {
@@ -180,7 +180,7 @@ export const days: Day[] = [
         place: "聖水（ソンス）へ移動",
         description: "地下鉄で移動",
         address: "성수역",
-        category: "walk",
+        category: "train",
       },
       {
         time: "15:40",
@@ -199,7 +199,7 @@ export const days: Day[] = [
         place: "江南（カンナム）へ移動",
         description: "地下鉄2号線で移動",
         address: "강남역",
-        category: "walk",
+        category: "train",
       },
       {
         time: "17:30",
@@ -248,7 +248,7 @@ export const days: Day[] = [
         place: "空港鉄道 乗車（ソウル駅）",
         description: "一般列車で金浦空港へ",
         address: "서울역",
-        category: "transport",
+        category: "train",
       },
       {
         time: "09:25",
